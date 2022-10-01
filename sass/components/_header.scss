@@ -1,3 +1,7 @@
+header {
+  background-color:$color-minitext-fon;
+  border-bottom:$header-bord;
+}
 .container__header {
     display: flex;
     align-items: center;
@@ -19,7 +23,7 @@
   }
   
   .logo__web {
-    color: #2196f3;
+    color:$color-button-text;
   
     /*навігація*/
   }
@@ -29,9 +33,9 @@
   }
   .header__nav {
     margin-right: 50px;
+    &:last-child {
+      margin: right 0;
   }
-  .header__nav:last-child {
-    margin: right 0;
   }
   .header-current__link {
     display: inline-block;
@@ -41,16 +45,14 @@
     font-weight: 500;
     line-height: 1.14;
     letter-spacing: 0.02em;
-    color: #2196f3;
+    color:$color-button-text;
     text-decoration: none;
     position: relative;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover, &:focus{
+    color:$color-button-text;
   }
-  .header-current__link:hover,
-  .header-current__link:focus {
-    color: #2196f3;
-  }
-  .header-current__link::after {
+  &::after{
     content: "";
     position: absolute;
     bottom: -1px;
@@ -58,9 +60,11 @@
     display: block;
     width: 100%;
     height: 4px;
-    background-color: rgb(33, 150, 243);
+    background-color:$color-button-text;
     border-radius: 2px;
   }
+  }
+ 
   .header__link {
     display: inline-block;
     padding-top: 32px;
@@ -72,15 +76,16 @@
     color: #212121;
     text-decoration: none;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
+      .header__list &:hover,
+      .header__list &:focus {
+        color:$color-button-text;
+    }
+}
   .header__list {
     display: flex;
     flex-direction: row;
   }
-  .header__list .header__link:hover,
-  .header__list .header__link:focus {
-    color: #2196f3;
-  }
+ 
   .header__list .header__link {
     text-decoration: none;
   }
@@ -96,31 +101,23 @@
   }
   .header-contact__item {
     margin-right: 50px;
+    &:last-child{
+      margin-right: 0;
+    }
   }
-  .header-contact__item:last-child{
-    margin-right: 0;
-  }
+
   .header-contact__icon {
-    fill: rgba(117, 117, 117, 1);
+    fill:$primary-color-text-fon;
     margin-right: 10px;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .header-contact__link {
-    color: #757575;
-  }
-  .header-contact__link:hover,
-  .header-contact__link:focus {
-    color: #2196f3;
-  }
-  .header-contact__link:hover .header-contact__icon,
-  .header-contact__link:focus .header-contact__icon {
-    fill: #2196f3;
-  }
+ 
   .header-contact__link {
     display: flex;
     align-items: center;
     font-family: "Roboto";
     font-style: normal;
+    color:$primary-color-text-fon;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -129,4 +126,11 @@
     padding-top: 32px;
     padding-bottom: 32px;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover, &:focus{
+      color: #2196f3;
+    }
+    &:hover .header-contact__icon,
+    &:focus .header-contact__icon {
+      fill:$color-button-text;
+    }
   }

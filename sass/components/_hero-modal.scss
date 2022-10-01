@@ -19,11 +19,12 @@
 }
 .hero__tagline{
   font-size: 44px;
+  margin-bottom: 30px;
   font-weight: 900;
   line-height: 1.36;
   letter-spacing: 0.06em;
   text-align: center;
-  color: #f5f5f5;
+  color:$color-minitext-fon;
   text-transform: uppercase;
   width: 696px;
   margin-left: auto;
@@ -34,8 +35,8 @@
   font-weight: 700;
   line-height: 1.87;
   letter-spacing: 0.06em;
-  background-color: #2196f3;
-  color: #ffffff;
+  background-color:$color-button-text;
+  color:$color-minitext-fon;
   border: 0px;
   border-radius: 4px;
   cursor: pointer;
@@ -49,11 +50,11 @@
   display: block;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   margin: 0 auto;
+  &:hover, &:focus{
+    background-color: $act-button;
+  }
 }
-.button__hero:hover,
-.button__hero:focus {
-  background-color: rgba(24, 140, 232, 1);
-}
+
 /*Модалка*/
 .back {
   position: fixed;
@@ -63,20 +64,21 @@
   height: 100%;
   opacity: 100%;
   transition: opacity 1400ms linear, visibility 1400ms linear;
-  background: rgba(0, 0, 0, 0.2);
-}
-.back.is-hidden {
-  opacity: 0;
+  background:$overlay-background;
+  &.is-hidden {
+    opacity: 0;
   visibility: hidden;
   pointer-events: none;
-}
-.back.back.is-hidden.modal {
+  }
+ &.is-hidden.modal {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: translate(-50%, -50%) scale(1) rotate(0deg);
   transition: opacity 1400ms linear, visibility 1400ms linear;
 }
+}
+
 .modal {
   position: absolute;
   padding: 40px;
@@ -85,7 +87,7 @@
   transform: translate(-50%, -50%);
   width: 528px;
   height: 581px;
-  background: rgb(255, 255, 255);
+  background:$modal-fich;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -102,15 +104,14 @@
   justify-content: center;
   width: 30px;
   height: 30px;
-  background: rgb(255, 255, 255);
+  background:$modal-fich;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
   padding: 0;
-}
-.modal__button:hover,
-.modal__button:focus {
-  fill: #2196f3;
+  &:hover, &:focus{
+    fill:$color-button-text;
+  }
 }
 
 .reg-form__text {
@@ -121,7 +122,7 @@
   text-align: center;
   letter-spacing: 0.03em;
   margin-bottom: 12px;
-  color: #212121;
+  color:$color-text
 }
 .reg-form__group {
   margin-bottom: 20px;
@@ -130,10 +131,11 @@
   position: relative;
   display: block;
   margin-bottom: 10px;
-}
-.reg-form__line:last-child {
-  margin-bottom: 0;
-}
+  &:last-child{
+    margin-bottom: 0;
+  }
+  }
+
 .reg-form__label {
   display: flex;
   font-size: 12px;
@@ -151,10 +153,13 @@
   border-radius: 4px;
   outline: transparent;
   transition: border-color 400ms;
+  &:hover, &:focus{
+    border-color:$color-button-text;
+  }
+  &:hover ~ .reg-form__icon,
+&:focus ~ .reg-form__icon {
+  fill:$color-button-text;
 }
-.reg-form__input:hover,
-.reg-form__input:focus {
-  border-color: #2196f3;
 }
 .reg-form__icon {
   position: absolute;
@@ -162,10 +167,7 @@
   left: 12px;
   transition: fill 400ms;
 }
-.reg-form__input:hover ~ .reg-form__icon,
-.reg-form__input:focus ~ .reg-form__icon {
-  fill: #2196f3;
-}
+
 .reg-form__hed {
   display: flex;
   font-size: 12px;
@@ -186,13 +188,16 @@
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   outline: transparent;
-}
-.reg-form__coment::placeholder {
-  font-size: 12px;
+  &::placeholder{
+    font-size: 12px;
   line-height: calc(14 / 12);
   letter-spacing: 0.01em;
-  color: #757575;
+  }
+  &:hover, &:focus{
+    border-color:$color-button-text;
+  }
 }
+
 .reg-form__agreem {
   position: relative;
   display: flex;
@@ -207,7 +212,7 @@
 .reg-form__icon-check {
   opacity: 0;
   transition: opacity 400ms;
-  fill: #2196f3;
+  fill:$act-button;
 }
 
 .reg-form__check:checked + .reg-form__check-icon .reg-form__icon-check {
@@ -219,6 +224,11 @@
 .reg-form__check:checked + .reg-form__check-icon .reg-form__icon-uncheck {
   opacity: 0;
 }
+.reg-form__check:focus+ .reg-form__check-icon{
+  border-radius: 2px;
+  border: 2px solid $act-button;
+}
+
 .reg-form__desc {
   font-weight: 400;
   font-size: 14px;
@@ -233,15 +243,15 @@
   line-height: calc(24 / 14);
   letter-spacing: 0.03em;
   text-decoration-line: underline;
-  color: #2196f3;
+  color:$color-button-text;
 }
 .reg-form__button {
   font-size: 16px;
   font-weight: 700;
   line-height: 1.87;
   letter-spacing: 0.06em;
-  background-color: #2196f3;
-  color: #ffffff;
+  background-color:$color-button-text;
+  color:$color-minitext-fon;
   border: 0px;
   border-radius: 4px;
   cursor: pointer;
@@ -256,8 +266,7 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.reg-button:hover,
-.reg-button:focus {
-  background-color: rgba(24, 140, 232, 1);
+    &:hover, &:focus{
+      background-color:$act-button;
+    }
 }
